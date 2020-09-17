@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>create</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/3.4.1/jquery.min.js"></script>
+/jquery
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<style type="text/css">
+	 body
+       {
+        font-family:cursive;
+       }         
+  
+</style>
+</head>
+<body>
+<div class="container">
+	<div class="jumbotron" style="background-color: lightgreen">
+			<div class="form-group">
+				<label>Name:</label>
+		<form method="POST" action="{% url 'update2' pk=data.id %}">
+			{% csrf_token %}
+				<input type="text" name="name" class="form-control" value="{{data.Iname}}">
+			</div>
+
+		
+			<div class="form-group">
+				<label>Mobile</label>
+				<input type="number" name="mob" class="form-control" value="{{data.Imob}}">
+			</div>
+
+			<div class="form-group">
+				<label>Email</label>
+				<input type="email" name="email" class="form-control" value="{{data.Imail}}">
+			</div>
+
+			<div class="form-group">
+				<label>Aadhar</label>
+				<input type="number" name="adhar" class="form-control" value="{{data.Iadhar}}">
+			</div>
+
+			<div class="form-group">
+				<label>Salary</label>
+				<input type="number" name="salary" class="form-control" value="{{data.Isalary}}">
+			</div>
+
+			<div class="form-group">
+				<input type="submit" name="" value="update" class="btn btn-success">
+				
+			</div>
+		</form>
+	</div>
+</div>
+</body>
+</html>

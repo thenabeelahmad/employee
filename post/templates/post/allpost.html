@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>list</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<style type="text/css">
+	 body
+       {
+        font-family:cursive;
+        
+       }  
+       div.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background-color:lightgrey;
+  padding: 6px;
+  font-size: 20px;
+  
+}       
+  
+</style>
+</head>
+<body>
+	<div class="sticky" class="header" ><center><h2><b>Public Posts</b></h2></center></div>
+	{% for i in data1 %}
+	<div class="container">
+	<div class="jumbotron" style="background-color:lightgreen;">
+				
+			<center>
+				<embed src="{{i.doc.url}}" width="92%" height="480">
+				<br>
+				<h2>Caption::-->>{{i.caption}}</h2>
+				
+				<a href="{% url 'uppost1' pk1=i.id %}" class="btn btn-info">update</a>
+				<a href="{% url 'delconf' pk1=i.id %}" class="btn btn-danger">delete</a>
+				<a href="{% url 'home' %} " class="btn btn-warning">Home</a>
+			</center>
+	</div>
+</div>
+	{% endfor %}
+		
+</body>
+</html>

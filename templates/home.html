@@ -1,0 +1,166 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>demo</title>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <style type="text/css">
+
+      .navbar
+    {
+      background-color: black;
+      color: white!important;
+      box-shadow: 0px 10px 15px white;
+      border:none;
+      border-bottom: 2px solid black;
+    }
+    .dropdown-menu
+    {
+      background-color:lightgreen;
+
+    }
+
+      li a:hover
+      {
+        background-color: lightgreen !important;
+        color: green !important; 
+      }
+
+      
+       body
+       {
+        font-family:cursive;
+       } 
+       html
+    {
+      scroll-behavior: smooth;
+     min-height: 100vh;
+    }        
+    
+    .footer a:hover
+    {
+    background-color: none !important;
+    }
+    i:hover
+    {
+      transform: rotate(3600deg);
+      transition: 2.5s;
+    }
+      
+      </style>
+</head>
+
+<body data-spy="scroll" data-target=".navbar">
+
+<!-- <div class="header" style="color:navy"><marquee behavior="" direction="down"><center><img src="{% static 'nabbu.jpg' %}" height="70" width="35%"></center></marquee>
+</div>
+ -->
+    
+<nav class="navbar navbar-inverse navbar-fixed-top" style="z-index: 10">
+  <div class="container">
+    <div class="navbar-header">
+      <a href="#" class="navbar-brand">Dezigno</a>
+      <button class="navbar-toggle" data-toggle="collapse" data-target="#mydiv" >
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div id="mydiv" class="collapse navbar-collapse" style="z-index: 10">
+    <ul class="nav navbar-nav" style="z-index: 10">
+      <li class="active"><a href="#" >Home</a></li>
+      
+      <li><a href="about">About</a></li>
+
+      <li><a href="contact">Contact</a></li>
+      
+      
+          {% if user.is_authenticated %}
+          <li style="z-index: 10"><a href="" class="dropdown-toggle" data-toggle="dropdown" >Personal Block<span class="caret"></span></a>
+          <ul class="dropdown-menu" style="z-index: 10">
+
+             {% if user.is_superuser %}
+             <li><a href="{% url 'create' %}">Add Employee</a></li>
+             <li><a href="{% url 'list' %}">All Employee</a></li>
+             {% endif %}
+             <br>
+             <li><a href="{% url 'addp' %}">Add Posts</a></li>
+             <li><a href="{% url 'alp' %}">All Posts</a></li>
+             
+          </ul>
+          </li>
+          {% endif %}   
+      
+
+
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+
+      <li><a href="" class="dropdown-toggle" data-toggle="dropdown" >Account<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+           {% if not user.is_authenticated %}
+            <li>
+              <a href="{% url 'login' %}">LogIn</a></li>
+            <li><a href="{% url 'signup' %}">SignUp</a></li>
+            {% else %}
+            <li><a href="{% url 'Lout' %}">LogOut</a></li>
+            {% endif %}
+            {% if user.is_superuser%}
+            <li><a href="/admin/">Admin</a></li>
+            {% endif %}
+            
+          </ul>
+
+      </li>
+      {% if user.is_authenticated %}
+      <li><a href="">Logged in as : {{user}}</a></li>
+      {% endif %}
+      </ul>
+  </div>
+</div>
+</nav>
+
+</div>
+{% block content %}
+  <section id="sec1" class="container-fluid" style="background-image: url('/static/b.jpg');background-size:cover;height: 105vh;box-shadow:0px 10px 20px black;">
+    
+    <div class="jumbotron" style="position: relative;top: 200px;background-color: rgba(0,0,0,0.4);border:2px solid white;color: white;" data-aos="flip-left" data-aos-duration="3000" >
+      <h1 style="font-family:chiller;font-size: 120px;text-align: center;">Nabeel Ahmad</h1>
+      <h1 style="text-align: center;">Your Friend Indeed,Ready For Your Help....</h1>
+      <p style="text-align: center;">Lets Have Hand In Hand....</p>
+    </div>
+
+  </section>
+
+{% endblock %}
+<section class="footer" style="float:right;padding-right: 40px;">
+<br>
+<a href="https://www.facebook.com/"><i class="fa fa-facebook" style="font-size: 30px;padding-right: 20px;"></i></a>
+<a  href="https://www.instagram.com/" ><i class="fa fa-instagram " style="font-size: 30px;padding-right: 20px;"></i></a>
+<a  href="https://www.whatsapp.com/" ><i  class="fa fa-whatsapp" style="font-size: 30px;padding-right: 20px;"></i></a>
+<a  href="https://www.twitter.com/" ><i class="fa fa-twitter" style="font-size: 30px;padding-right: 20px;"></i></a>
+
+
+
+
+</section>
+
+
+<script>
+  AOS.init({
+    duration:2000,
+  });
+</script>
+
+</body>
+</html>

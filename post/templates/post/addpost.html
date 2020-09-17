@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>create</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+<style type="text/css">
+	 body
+       {
+        font-family:cursive;
+       }         
+  	 #a
+  	 {
+  	 	margin-top: 120px;
+  	 }
+  	 
+
+</style>
+</head>
+<body>
+<div class="container">
+	<div class="jumbotron" id="a" style="background-color:white;">
+		<form method="POST" action="{% url 'addp' %}" enctype="multipart/form-data">
+			{% csrf_token %}
+			<div class="form-group">
+				<label>Document:</label>
+				<input type="file" name="doc" class="form-control">
+			</div>
+			<div class="form-group">
+				<label>caption</label>
+				<input type="text" name="cap" class="form-control">
+			</div>
+			
+			
+			<div class="form-group">
+				<input type="submit" name="" value="POST" class="btn btn-success">
+				
+			</div>
+		</form>
+	</div>
+</div>
+</body>
+</html>
